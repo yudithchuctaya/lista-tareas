@@ -90,9 +90,9 @@ function Añadir(){
 
     }
 
-           // la funcion Tachar hace que  al darle clik en el mismo se tache y para limpiar el tachado (doble click)
+// la funcion Tachar hace que  al darle clik en el mismo se tache y para limpiar el tachado (doble click)
 function Tachar (){
-          //optener un elemento de un evento especifico y realizar el tachado
+//optener un elemento de un evento especifico y realizar el tachado
 (event.target).style.textDecoration = ((event.target).style.textDecoration=='line-through') ? 'transparent' : 'line-through';
   console.log(event.target.textContent);
 }
