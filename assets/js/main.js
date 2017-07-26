@@ -74,7 +74,7 @@ var listado =[
      document.getElementById("lista").innerHTML=html;
     }
 
-// crea un nodo de tipo texto(hijo)y uno de tipo  elemento (padre)
+// crea un nodo de tipo texto(hijo)y uno de tipo  elemento  como hijo de la pagina 
 function Añadir(){
   var button = document.getElementById("añadirTarea").value;
   var add = document.createElement("li");
@@ -84,15 +84,16 @@ function Añadir(){
 
   }
 
-   var tachado = document.getElementsByTagName('li');
+   var tachado = document.getElementsByTagName('ul');
    for (var i = 0; i < tachado.length; i++) {
-      tachado[i].addEventListener('click',Tachar,true);
+      tachado[i].addEventListener('click',Tachar,false);
 
     }
 
 // la funcion Tachar hace que  al darle clik en el mismo se tache y para limpiar el tachado (doble click)
 function Tachar (){
 //optener un elemento de un evento especifico y realizar el tachado
+
 (event.target).style.textDecoration = ((event.target).style.textDecoration=='line-through') ? 'transparent' : 'line-through';
   console.log(event.target.textContent);
 }
