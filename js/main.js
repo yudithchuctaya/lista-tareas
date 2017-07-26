@@ -63,27 +63,40 @@ var listado =[
 ]
 
 
+     var html = "";
+  for (var i =0; i<listado.length;i++){
+     var mi_lista = listado[i];
 
 
- var html = "";
- for (var i =0; i<listado.length;i++){
-  var mi_lista = listado[i];
+     var tarea =document.getElementById("tareas" ).value;
+     var objeto =document.getElementById("lista" ).innerHTML='<li>'+  mi_lista.title  +"</li>";
+     html+=objeto;
+     document.getElementById("lista").innerHTML=html;
+    }
 
-  var tarea =document.getElementById("tareas" ).value;
-  var objeto =document.getElementById("lista" ).innerHTML="<div>"+ "<p>" + mi_lista.title + "</p>" +"</div>";
-   html+=objeto;
-   
-document.getElementById("lista").innerHTML=html;
-}
-
-
+// crea un nodo de tipo texto(hijo)y uno de tipo  elemento (padre)
 function Añadir(){
   var button = document.getElementById("añadirTarea").value;
-  var añade = document.createElement("li");
+  var add = document.createElement("li");
   var contenido = document.createTextNode(button); 
-  añade.appendChild(contenido);
- document.getElementById("tareas").appendChild(añade);
-  } 
+  add.appendChild(contenido);
+  document.getElementById("tareas").appendChild(add);
+
+  }
+
+   var tachado = document.getElementsByTagName('li');
+   for (var i = 0; i < tachado.length; i++) {
+      tachado[i].addEventListener('click',Tachar,true);
+
+    }
+
+           // la funcion Tachar hace que  al darle clik en el mismo se tache y para limpiar el tachado (doble click)
+function Tachar (){
+          //optener un elemento de un evento especifico y realizar el tachado
+(event.target).style.textDecoration = ((event.target).style.textDecoration=='line-through') ? 'transparent' : 'line-through';
+  console.log(event.target.textContent);
+}
+
 
 
 
